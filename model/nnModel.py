@@ -13,27 +13,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Net(nn.Module):
-    def __init__(self):
-        super().__init__()
-
-        self.conv1 = nn.Conv2d(1, 32, 5)     # consider padding=2? what does this do
-        self.conv2 = nn.Conv2d(32, 64, 5)
-        self.conv3 = nn.Conv2d(64, 128, 5)
-
-        # infer flattened conv output size
-        with torch.no_grad():
-            dummy = torch.zeros(1, 1, 50, 50)
-            out = self._forward_conv(dummy)
-            n = out.view(1, -1).size(1)
-            
-        self.fc1 = nn.Linear(n, 512)
-        self.dropout = nn.Dropout(0.5)
-        self.fc2 = nn.Linear(512, 2)
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-
-class Net(nn.Module):
     def __init__(self, img_size=50):
         super().__init__()
 
