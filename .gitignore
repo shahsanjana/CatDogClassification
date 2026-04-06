@@ -1,0 +1,6 @@
+PetImages
+ckpts
+data
+model
+wandb
+*.pyc
